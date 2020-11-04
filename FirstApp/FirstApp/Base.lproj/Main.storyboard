@@ -51,8 +51,11 @@
                                     <segment title="Less"/>
                                     <segment title="More"/>
                                 </segments>
+                                <connections>
+                                    <action selector="lessOrMoreChangeValue:" destination="BYZ-38-t0r" eventType="valueChanged" id="0rw-D7-Hva"/>
+                                </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5R6-sM-hF7">
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5R6-sM-hF7">
                                 <rect key="frame" x="20" y="444" width="374" height="206"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -69,6 +72,9 @@
                                     <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="42" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="gcB-dP-Uvk">
                                         <rect key="frame" x="130" y="63" width="238" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="sliderDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="5cw-s6-wV8"/>
+                                        </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="42" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRi-fd-EJd">
                                         <rect key="frame" x="38" y="67" width="42" height="21"/>
@@ -94,6 +100,9 @@
                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="PCK-JP-0wQ">
                                         <rect key="frame" x="272" y="114" width="94" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="stepperDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="U8b-YQ-HWw"/>
+                                        </connections>
                                     </stepper>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gqa-ka-0bi">
                                         <rect key="frame" x="313" y="155" width="49" height="31"/>
@@ -116,11 +125,27 @@
                                 <state key="normal" title="Create Story">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="createStoryDidTapp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u6i-qj-4ma"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                     </view>
+                    <connections>
+                        <outlet property="ageTextField" destination="uef-iI-MAa" id="O7u-41-Tzw"/>
+                        <outlet property="animalSegmentedControl" destination="Ryv-Nn-lRY" id="eua-1m-nLv"/>
+                        <outlet property="containerView" destination="5R6-sM-hF7" id="Srk-3Y-p7m"/>
+                        <outlet property="firstNameTextField" destination="4AQ-rj-NQq" id="l0T-Sz-Jmj"/>
+                        <outlet property="happyEnding" destination="Gqa-ka-0bi" id="ed8-Ca-LAE"/>
+                        <outlet property="locationTextField" destination="YTf-XN-Ey4" id="00b-Vk-pOQ"/>
+                        <outlet property="numberSlider" destination="gcB-dP-Uvk" id="YN9-dR-dPr"/>
+                        <outlet property="numberlabel" destination="gRi-fd-EJd" id="16H-gH-4Bv"/>
+                        <outlet property="petNumberStepper" destination="PCK-JP-0wQ" id="FRC-Qa-nvc"/>
+                        <outlet property="petsNumberLabel" destination="vU9-WS-abc" id="tTH-NR-45m"/>
+                        <outlet property="verbTextField" destination="9ja-Ls-Uv0" id="M3x-TP-Bl8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
