@@ -11,7 +11,7 @@
         <!--Reminders-->
         <scene sceneID="TPU-aD-jjj">
             <objects>
-                <viewController id="NcS-QZ-Q77" sceneMemberID="viewController">
+                <viewController id="NcS-QZ-Q77" customClass="RemindersViewController" customModule="RemindersApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uFc-Q5-ZoK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,10 +20,10 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="92" id="U0O-Xi-OZD">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReminderCell" rowHeight="92" id="U0O-Xi-OZD" customClass="ReminderCell">
                                         <rect key="frame" x="0.0" y="28" width="414" height="92"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U0O-Xi-OZD" id="WVS-MQ-c5p">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U0O-Xi-OZD" id="WVS-MQ-c5p" customClass="Remin">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="92"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -56,8 +56,17 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="tHN-BB-hur" id="66w-XF-Twv"/>
+                                            <outlet property="isCompletedView" destination="aeO-eq-it6" id="ipa-MN-nYI"/>
+                                            <outlet property="titleLabel" destination="w2o-os-Cwv" id="Z2L-wH-SpD"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="NcS-QZ-Q77" id="TgJ-LB-uda"/>
+                                    <outlet property="delegate" destination="NcS-QZ-Q77" id="5mK-Ul-QVG"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BFN-qd-Gxe"/>

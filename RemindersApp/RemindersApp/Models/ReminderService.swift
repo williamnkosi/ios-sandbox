@@ -9,7 +9,7 @@ import Foundation
 
 class ReminderService {
     
-    static let sharted = ReminderService()
+    static let shared = ReminderService()
     private var reminders = [Reminder]()
     
     //Create
@@ -23,7 +23,7 @@ class ReminderService {
     }
     
     //Get # of reminders
-    func getNumberOfReminder() -> Int {
+    func getNumberOfReminders() -> Int {
         return reminders.count
     }
     
