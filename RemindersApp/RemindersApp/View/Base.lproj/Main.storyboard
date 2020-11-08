@@ -91,10 +91,10 @@
             </objects>
             <point key="canvasLocation" x="231.8840579710145" y="-68.303571428571431"/>
         </scene>
-        <!--View Controller-->
+        <!--Favorite Reminder View Controller-->
         <scene sceneID="zdU-22-KLG">
             <objects>
-                <viewController id="Tng-VK-PH9" sceneMemberID="viewController">
+                <viewController id="Tng-VK-PH9" customClass="FavoriteReminderViewController" customModule="RemindersApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L3Z-w5-ONJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -118,6 +118,10 @@
                         <color key="backgroundColor" systemColor="systemTealColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="318-GZ-8mK"/>
+                    <connections>
+                        <outlet property="dateLabel" destination="EKW-o7-qYC" id="rnp-JN-gVL"/>
+                        <outlet property="titleLabel" destination="P9R-pc-eWR" id="bff-G1-AvW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5s3-59-uiN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

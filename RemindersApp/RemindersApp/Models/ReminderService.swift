@@ -13,8 +13,22 @@ class ReminderService {
     private var reminders = [Reminder]()
     
     //Create
+    //First element will be the earliest reminder
     func create(reminder: Reminder){
-        reminders.append(reminder)
+        var indexToInsert: Int?
+        for (index, element) in reminders.enumerated(){
+            if element.date.timeIntervalSince1970 > reminder.date.timeIntervalSince1970{
+                indexToInsert = index
+                break
+            }
+        }
+        
+        if let indexToInsert = indexToInsert{
+            reminders.insert(reminder, at: indexToInsert)
+        } else {
+            reminders.append(reminder)
+        }
+        
     }
     
     //Update
