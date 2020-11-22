@@ -16,14 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3mb-Sl-wJo">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" estimatedRowHeight="88" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3mb-Sl-wJo">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReminderCell" rowHeight="92" id="U0O-Xi-OZD" customClass="ReminderCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReminderCell" rowHeight="92" id="U0O-Xi-OZD" customClass="ReminderCell" customModule="RemindersApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="92"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U0O-Xi-OZD" id="WVS-MQ-c5p" customClass="Remin">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U0O-Xi-OZD" id="WVS-MQ-c5p" customClass="ReminderCell" customModule="RemindersApp" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="92"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -57,9 +57,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="dateLabel" destination="tHN-BB-hur" id="66w-XF-Twv"/>
-                                            <outlet property="isCompletedView" destination="aeO-eq-it6" id="ipa-MN-nYI"/>
-                                            <outlet property="titleLabel" destination="w2o-os-Cwv" id="Z2L-wH-SpD"/>
+                                            <outlet property="dateLabel" destination="tHN-BB-hur" id="Lmi-tI-Dst"/>
+                                            <outlet property="isCompleteView" destination="aeO-eq-it6" id="BcY-Er-DDY"/>
+                                            <outlet property="titleLabel" destination="w2o-os-Cwv" id="fKZ-HN-kSh"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -86,6 +86,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="3mb-Sl-wJo" id="9sn-9P-TyR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nLZ-4Q-zbQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -119,18 +122,18 @@
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="318-GZ-8mK"/>
                     <connections>
-                        <outlet property="dateLabel" destination="EKW-o7-qYC" id="rnp-JN-gVL"/>
-                        <outlet property="titleLabel" destination="P9R-pc-eWR" id="bff-G1-AvW"/>
+                        <outlet property="dateLabel" destination="EKW-o7-qYC" id="ejB-KD-ULi"/>
+                        <outlet property="titleLabel" destination="P9R-pc-eWR" id="iDD-Nq-9UF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5s3-59-uiN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-678" y="662"/>
         </scene>
-        <!--View Controller-->
+        <!--New Reminder View Controller-->
         <scene sceneID="3RU-dQ-4kg">
             <objects>
-                <viewController id="uK5-xG-i0s" sceneMemberID="viewController">
+                <viewController id="uK5-xG-i0s" customClass="NewReminderViewController" customModule="RemindersApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uSS-d0-ZEe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -178,12 +181,20 @@
                                 <state key="normal" title="SAVE">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveButtonDidTap:" destination="uK5-xG-i0s" eventType="touchUpInside" id="8Xw-iV-7Rb"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JVd-mG-MYU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="DV6-GB-f1b"/>
+                    <connections>
+                        <outlet property="completedSwitch" destination="sTH-V3-Cdm" id="Fjn-XP-92b"/>
+                        <outlet property="datePicker" destination="doE-TO-xrn" id="oe6-ic-UiR"/>
+                        <outlet property="titleTextField" destination="bFV-OH-gk4" id="nF3-ty-UJl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="msZ-o0-sw1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

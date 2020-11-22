@@ -8,8 +8,19 @@
 import UIKit
 
 class RemindersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+    @IBOutlet weak var tableView: UITableView!
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ReminderService.shared.getNumberOfReminders()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        ReminderService.shared.toggleCompleted(index: indexPath.row)
+        tableView.reloadData()  
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -8,7 +8,7 @@
 import UIKit
 
 class FavoriteReminderViewController : UIViewController {
-    
+
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     
