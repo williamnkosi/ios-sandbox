@@ -79,7 +79,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Reminders" id="RF4-84-xHt">
-                        <barButtonItem key="leftBarButtonItem" title="Edit" id="lNs-Jr-SlS"/>
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="lNs-Jr-SlS">
+                            <connections>
+                                <action selector="editeButtonDidPress:" destination="NcS-QZ-Q77" id="OB8-e9-ANQ"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="YWI-Jb-NK3">
                             <connections>
                                 <segue destination="uK5-xG-i0s" kind="show" identifier="AddSegue" id="VHv-Zw-Gu2"/>

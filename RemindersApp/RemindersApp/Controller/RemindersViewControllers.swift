@@ -14,6 +14,23 @@ class RemindersViewController: UIViewController, UITableViewDataSource, UITableV
         tableView.reloadData()
     }
     
+    @IBAction func editeButtonDidPress(_ sender: UIBarButtonItem) {
+        if tableView.isEditing {
+            tableView.isEditing = false
+            sender.title = "Edit"
+        } else {
+            tableView.isEditing = true
+            sender.title = "Done"
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            ReminderService.shared.deleteReminder(index: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ReminderService.shared.getNumberOfReminders()
     }
