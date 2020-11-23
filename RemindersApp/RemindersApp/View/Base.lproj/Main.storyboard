@@ -58,6 +58,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="dateLabel" destination="tHN-BB-hur" id="Lmi-tI-Dst"/>
+                                            <outlet property="infoButton" destination="HU4-og-Z79" id="Bkg-sk-aHb"/>
                                             <outlet property="isCompleteView" destination="aeO-eq-it6" id="BcY-Er-DDY"/>
                                             <outlet property="titleLabel" destination="w2o-os-Cwv" id="fKZ-HN-kSh"/>
                                         </connections>
@@ -243,7 +244,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="VHv-Zw-Gu2"/>
+        <segue reference="iBc-ZB-g8q"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="info.circle" catalog="system" width="128" height="121"/>

@@ -47,9 +47,16 @@ class RemindersViewController: UIViewController, UITableViewDataSource, UITableV
         // Get the reminder for the given index path
         let reminder = ReminderService.shared.getReminder(index: indexPath.row)
         // Update the cell base on the reminder object
-        cell.update(reminder: reminder)
+        cell.update(reminder: reminder, index: indexPath.row)
         
         // return cell
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "UpdateSegue", let newReminderViewController = segue.destination as? NewReminderViewController, let infoButton = sender as? UIButton{
+            newReminderViewController.reminderIndex = infoButton.tag
+            
+        }
     }
 }

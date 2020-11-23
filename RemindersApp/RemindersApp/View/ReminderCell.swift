@@ -13,10 +13,12 @@ class ReminderCell: UITableViewCell {
     
     @IBOutlet weak var isCompleteView: UIView!
     
+    @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    func update(reminder:Reminder) {
+    func update(reminder:Reminder, index:Int) {
         titleLabel.text = reminder.title
+        infoButton.tag = index
         isCompleteView.layer.cornerRadius = isCompleteView.frame.width / 2.0
         isCompleteView.layer.borderColor = UIColor.lightGray.cgColor
         let dateFormatter = DateFormatter()
