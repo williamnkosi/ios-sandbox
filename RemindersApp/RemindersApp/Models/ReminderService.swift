@@ -12,6 +12,37 @@ class ReminderService {
     static let shared = ReminderService()
     private var reminders = [Reminder]()
     
+    private var url: URL
+    private init(){
+        url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        url.appendPathComponent("reminder.json")
+        load()
+    }
+    func load() {
+        do {
+            let data = try Data(contentsOf: url)
+            let decoder = JSONDecoder()
+            reminders = try decoder.decode([Reminder].self, from: data)
+        } catch {
+            print("Error loading file \(error.localizedDescription)")
+        }
+        
+        
+    }
+    
+    func save(){
+        
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(reminders)
+            try data.write(to: url)
+        } catch  {
+            print("error saving file \(error.localizedDescription)")
+        }
+        
+        
+    }
+    
     //Create
     //First element will be the earliest reminder
     func create(reminder: Reminder){
@@ -28,12 +59,14 @@ class ReminderService {
         } else {
             reminders.append(reminder)
         }
+        save()
         
     }
     
     //Update
     func update(reminder: Reminder, index: Int)  {
         reminders[index] = reminder
+        save()
     }
     
     //Get # of reminders
@@ -49,6 +82,7 @@ class ReminderService {
     //Toggle completed status of a reminder
     func toggleCompleted(index: Int) {
         reminders[index].isCompleted = !reminders[index].isCompleted
+        save()
     }
     
     //Get the list of reminders
@@ -59,6 +93,7 @@ class ReminderService {
     //Delete a reminder
     func deleteReminder(index: Int) {
         reminders.remove(at: index)
+        save()
     }
     
     func getFavoriteReminder() -> Reminder? {
