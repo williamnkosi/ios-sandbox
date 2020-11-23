@@ -78,7 +78,7 @@ class ReminderService {
     func getReminder(index:Int) -> Reminder {
         return reminders[index]
     }
-    
+     
     //Toggle completed status of a reminder
     func toggleCompleted(index: Int) {
         reminders[index].isCompleted = !reminders[index].isCompleted
